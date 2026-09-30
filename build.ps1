@@ -15,6 +15,7 @@ try {
     & $python -m PyInstaller --noconfirm --clean --onefile --windowed `
         --name ConvertKompas --icon $icon `
         --add-data "$icon;." --add-data "$preview;." `
+        --exclude-module numpy `
         --distpath (Join-Path $PSScriptRoot 'dist') `
         --workpath (Join-Path $PSScriptRoot 'build') `
         (Join-Path $PSScriptRoot 'ConvertKompas.pyw')
