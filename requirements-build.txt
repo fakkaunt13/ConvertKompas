@@ -1,0 +1,2 @@
+comtypes==1.4.17
+pyinstaller==6.22.3
