@@ -2,7 +2,7 @@
 
 ConvertKompas сохраняет чертежи и модели из установленного **КОМПАС-3D v21** в форматах версий **16, 16.1, 17, 17.1, 18, 18.1, 19 и 20**. Поддерживаются `.cdw`, `.frw`, `.m3d`, `.a3d`, `.spw` и `.kdw`.
 
-**[Скачать готовый ConvertKompas.exe](releases/latest)** · Windows x64
+**[Скачать готовый ConvertKompas.exe](https://github.com/fakkaunt13/ConvertKompas/releases/latest)** · Windows x64
 
 ## Использование
 
