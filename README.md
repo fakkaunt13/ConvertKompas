@@ -26,6 +26,10 @@ ConvertKompas использует COM API установленного КОМП
 
 Разработчик: **Zabir**.
 
-Поддержать: **USDT TRC20 — `TPU4Kt3nBJ2WCkXu9FqzprP3AeHxhEtejo`**.
+Поддержать (USDT TRC20). Нажмите значок копирования в правом верхнем углу блока:
+
+```text
+TPU4Kt3nBJ2WCkXu9FqzprP3AeHxhEtejo
+```
 
 Исходный код ConvertKompas распространяется по лицензии [MIT](LICENSE). Сведения о сторонних компонентах — в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
