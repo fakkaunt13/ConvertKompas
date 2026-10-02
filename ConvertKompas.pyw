@@ -23,6 +23,7 @@ VERSIONS = {'16': 19, '16.1': 20, '17': 21, '17.1': 22,
             '18': 23, '18.1': 24, '19': 25, '20': 26}
 REPORT = pathlib.Path(tempfile.gettempdir()) / 'ConvertKompas-last-run.log'
 SETTINGS = pathlib.Path(os.environ.get('APPDATA') or pathlib.Path.home() / 'AppData' / 'Roaming') / 'ConvertKompas' / 'settings.json'
+WALLET_ADDRESS = 'TPU4Kt3nBJ2WCkXu9FqzprP3AeHxhEtejo'
 
 
 def load_settings(path=SETTINGS):
@@ -213,8 +214,24 @@ def main():
     ttk.Label(about_tab, text='Пакетное сохранение документов КОМПАС-3D v21 в ранних версиях',
               style='App.TLabel').pack(pady=(4, 20))
     ttk.Label(about_tab, text='Разработчик: Zabir', style='App.TLabel').pack()
-    ttk.Label(about_tab, text='Поддержать USDT TRC20 - TPU4Kt3nBJ2WCkXu9FqzprP3AeHxhEtejo',
-              style='App.TLabel').pack(pady=(14, 0))
+    donation_row = ttk.Frame(about_tab, style='App.TFrame')
+    donation_row.pack(pady=(14, 0))
+    ttk.Label(donation_row, text='USDT TRC20:', style='App.TLabel').pack(side='left', padx=(0, 8))
+    wallet_entry = ttk.Entry(donation_row, width=len(WALLET_ADDRESS) + 1, justify='center')
+    wallet_entry.insert(0, WALLET_ADDRESS)
+    wallet_entry.configure(state='readonly')
+    wallet_entry.pack(side='left', ipady=4)
+
+    def copy_wallet():
+        root.clipboard_clear()
+        root.clipboard_append(WALLET_ADDRESS)
+        root.update()
+        copy_button.configure(text='Скопировано')
+        root.after(1800, lambda: copy_button.configure(text='Копировать'))
+
+    copy_button = ttk.Button(donation_row, text='Копировать',
+                             style='Secondary.TButton', command=copy_wallet)
+    copy_button.pack(side='left', padx=(8, 0))
 
     ttk.Label(conversion_tab, text='Исходная папка или файл КОМПАС v21', style='App.TLabel').pack(anchor='w', padx=12, pady=(12, 4))
     row = ttk.Frame(conversion_tab, style='App.TFrame'); row.pack(fill='x', padx=12)
